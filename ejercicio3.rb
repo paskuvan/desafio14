@@ -1,18 +1,19 @@
-list = [array]
+#list = [array]
 
 #agregar persona opcion 1
-def add_person[array]
+def add_person(array)
 	puts 'Ingresa nombre'
 	name = gets.chomp
 	puts 'Ingresa edad'
 	age = gets.chomp
 	puts 'Ingresa comuna'
 	commune = gets.chomp
-	puts 'Ingresa genero (M/F)'
+	puts 'Ingresa genero (Female/Male)'
 	gender = gets.chomp
 
-	array.push{nombre:name, edad:age_to_i, comuna:commune, genero:gender}
-	print "Se ha ingresado el usuario \n #{array}" # salto de linea
+ array.push{nombre: name, edad: age_to_i, comuna: commune, genero: gender}
+	print "Se ha ingresado el usuario: \n #{array}"
+  puts
 end
 
 #editar persona opcion 2
@@ -28,7 +29,7 @@ end
 
 #eliminar persona opcion 3
 def delete_person(people)
-	puts "Ingresa el nombre del alumno para eliminar"
+	puts 'Ingresa el nombre del alumno para eliminar'
 	name = gets.chomp
 	
 	if elegido.length == 0
@@ -40,17 +41,56 @@ def delete_person(people)
 	print people
 end
 
-#mostrar la cantidad de personas ingresadas
+#mostrar la cantidad de personas ingresadas opcion 4
 def show_count(people)
 	print "El curso tiene #{people.length} alumnos"
 end
 
-#mostrar las comunas
+#mostrar las comunas opcion 5
 
 def commune_list
 	comuna_array = people.map{|key, value|
 	}
 end
+
+
+
+#mostrar 20 y 25 años opcion 6
+
+def range_age (people)
+  people.select do |foo|
+    puts foo[:nombre] if foo[:edad] >= 20 && foo[:edad] <= 25
+  end
+end
+
+#mostrar la suma de todas las edades opcion 7
+def sum_age(people)
+  suma = num + people
+  puts suma
+end
+
+#mostrar el promedio de las edades opcion 8
+
+def average_age(people)
+  suma = array.inject{|sum, e| sum + e[:edad]}
+  i = 0 
+  array.each {i += 1}
+  print "El promedio de las edades es #{sum}", "\n"
+end
+
+#mostrar el genero opcion 9
+
+def show_gender(people)
+array.select do |foo|
+  if foo[:genero] == 'Female'
+    puts "Los hombres son: #{foo[:nombre]}"
+  else
+    puts "Las mujeres son: #{foo[:nombre]}"
+end
+end
+end
+
+
 
 puts 'Ingresa una de estas opciones'
 opcion = 0
@@ -80,15 +120,15 @@ while opcion != '10'
   when '5'
     commune_list(list)
   when '6'
-    check_if_exists(list)
+    range_age(list)
   when '7'
-	max_stock(list)
+	sum_age(list)
   when '8'
-	max_stock(list)
+	average_age(list)
   when '9'
-	max_stock(list)
+	show_gender(list)
   when '10'
-	max_stock(list)
+	salida(list)
   else
     exit
   end
