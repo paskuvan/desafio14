@@ -106,7 +106,7 @@ while opcion != '10'
   puts 'Opcion 9: Muestra dos listas de personas, una por cada género'
   puts 'Opcion 10: Salir'
 
-  opcion = gets.chomp
+  opcion = gets.chomp 
 
   puts case opcion
   when '1'
